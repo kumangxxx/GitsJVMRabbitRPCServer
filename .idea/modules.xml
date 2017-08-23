@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.rabbitmq/amqp-client/4.2.0/4.2.0.iml" filepath="$PROJECT_DIR$/.idea/modules/com.rabbitmq/amqp-client/4.2.0/4.2.0.iml" group="com.rabbitmq/amqp-client/4.2.0" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/GitsRabbitRPCServer.iml" filepath="$PROJECT_DIR$/.idea/modules/GitsRabbitRPCServer.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/GitsRabbitRPCServer_main.iml" filepath="$PROJECT_DIR$/.idea/modules/GitsRabbitRPCServer_main.iml" group="GitsRabbitRPCServer" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/GitsRabbitRPCServer_test.iml" filepath="$PROJECT_DIR$/.idea/modules/GitsRabbitRPCServer_test.iml" group="GitsRabbitRPCServer" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.rabbitmq/amqp-client/amqp-client.iml" filepath="$PROJECT_DIR$/.idea/modules/com.rabbitmq/amqp-client/amqp-client.iml" group="com.rabbitmq/amqp-client" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.rabbitmq/com.rabbitmq.iml" filepath="$PROJECT_DIR$/.idea/modules/com.rabbitmq/com.rabbitmq.iml" group="com.rabbitmq" />
     </modules>
   </component>
 </project>

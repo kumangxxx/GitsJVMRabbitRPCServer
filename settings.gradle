@@ -1,2 +1,2 @@
 rootProject.name = 'GitsRabbitRPCServer'
-
+include ':com.rabbitmq:amqp-client:4.2.0'
