@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/GitsRabbitRPCServer.iml" filepath="$PROJECT_DIR$/.idea/modules/GitsRabbitRPCServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/GitsRabbitRPCServer_main.iml" filepath="$PROJECT_DIR$/.idea/modules/GitsRabbitRPCServer_main.iml" group="GitsRabbitRPCServer" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/GitsRabbitRPCServer_test.iml" filepath="$PROJECT_DIR$/.idea/modules/GitsRabbitRPCServer_test.iml" group="GitsRabbitRPCServer" />
+    </modules>
+  </component>
+</project>
