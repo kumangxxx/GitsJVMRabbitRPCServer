@@ -5,6 +5,16 @@ apply plugin: 'java'
 
 sourceCompatibility = 1.8
 
+task buildFatJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'GitsRabbitRPCServer Jar File',
+                'Implementation-Version' : version
+    }
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it)}}
+    with jar
+}
+
 repositories {
     mavenCentral()
 }

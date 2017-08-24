@@ -2,9 +2,9 @@ public class Demo {
 
     public static void main(String[] args) {
 
-        GITSRabbitRPCServer.Handle("java.test", new GITSRabbitRPCServer.RPCHandler() {
+        GITSRabbitRPCConsumerHandler.Handle("java.test", new GITSRabbitRPCConsumerHandler.RPCHandler() {
             @Override
-            public void messageReceived(String message, GITSRabbitRPCServer.RPCHandlerCallback callback) throws Exception {
+            public void messageReceived(String message, GITSRabbitRPCConsumerHandler.RPCHandlerCallback callback) throws Exception {
                 System.out.println("JAVA.TEST");
                 System.out.println("Message : " + message);
                 callback.callback("OK");
