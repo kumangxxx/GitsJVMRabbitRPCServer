@@ -1,26 +1,20 @@
+package id.gits.deps.rabbitrpcserver;
+
 import com.rabbitmq.client.*;
 
 import java.io.IOException;
 import java.util.HashMap;
 
-class GITSRabbitRPCConsumerHandler {
-
-    interface RPCHandlerCallback {
-        public void callback(String result);
-    }
-
-    interface RPCHandler {
-        public void messageReceived(String message, RPCHandlerCallback callback) throws Exception;
-    }
+public class GITSRabbitRPCConsumerHandler {
 
     private static HashMap<String, RPCHandler> handlers = new HashMap<>();
     public static void Handle(String routingKey, RPCHandler handler) {
         handlers.put(routingKey, handler);
     }
 
-    interface ConsumerListener {
+    public interface ConsumerListener {
         public void onSuccess(String result, Envelope envelope, AMQP.BasicProperties properties);
-        public void onError(Exception e, GITSRabbitRPCServer.RabbitError err);
+        public void onError(Exception e, RabbitError err);
     }
 
     static Consumer Consumer(Channel channel, ConsumerListener listener) {
@@ -37,7 +31,7 @@ class GITSRabbitRPCConsumerHandler {
                             @Override
                             public void callback(String result) {
                                 listener.onSuccess(result, envelope, properties);
-                                try { channel.basicAck(envelope.getDeliveryTag(), false); } catch(Exception e) { listener.onError(e, GITSRabbitRPCServer.RabbitError.OnSendReplyError); }
+                                try { channel.basicAck(envelope.getDeliveryTag(), false); } catch(Exception e) { listener.onError(e, RabbitError.OnSendReplyError); }
                             }
                         });
                     } catch (Exception e) {

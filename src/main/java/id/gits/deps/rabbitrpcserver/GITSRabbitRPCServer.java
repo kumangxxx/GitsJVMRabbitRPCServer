@@ -1,26 +1,8 @@
+package id.gits.deps.rabbitrpcserver;
+
 import com.rabbitmq.client.*;
 
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-
 public class GITSRabbitRPCServer {
-
-    enum RabbitError {
-        OnConnectError,
-        OnDeclareQueueError,
-        OnOpenChannelError,
-        OnDeclareExchangeError,
-        OnRouteBindingError,
-        OnSendReplyError,
-        OnSetupConsumerError
-    }
-
-
-    interface RabbitRPCServerListener {
-        public void onConnected();
-        public void onError(Exception e, RabbitError type);
-    }
 
     private static RabbitRPCServerListener rabbitRPCServerListener;
 
@@ -114,8 +96,13 @@ public class GITSRabbitRPCServer {
         String replyTo = properties.getReplyTo();
         String correlationId = properties.getCorrelationId();
 
+        System.out.println("publishing reply to : " + replyTo);
+        System.out.println("corrId : " + correlationId);
+
+        AMQP.BasicProperties prop = new AMQP.BasicProperties.Builder().correlationId(correlationId).build();
+
         try {
-            globalChannel.basicPublish("", replyTo, null, response.getBytes());
+            globalChannel.basicPublish("", replyTo, prop, response.getBytes("UTF-8"));
         } catch (Exception e) {
             rabbitRPCServerListener.onError(e, RabbitError.OnSendReplyError);
         }

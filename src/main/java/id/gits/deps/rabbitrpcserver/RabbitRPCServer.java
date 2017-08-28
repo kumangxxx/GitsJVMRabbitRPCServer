@@ -1,3 +1,5 @@
+package id.gits.deps.rabbitrpcserver;
+
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 

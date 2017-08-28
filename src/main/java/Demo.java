@@ -1,12 +1,15 @@
+import id.gits.deps.rabbitrpcserver.*;
+
 public class Demo {
 
     public static void main(String[] args) {
 
-        GITSRabbitRPCConsumerHandler.Handle("java.test", new GITSRabbitRPCConsumerHandler.RPCHandler() {
+        GITSRabbitRPCConsumerHandler.Handle("java.test", new RPCHandler() {
             @Override
-            public void messageReceived(String message, GITSRabbitRPCConsumerHandler.RPCHandlerCallback callback) throws Exception {
+            public void messageReceived(String message, RPCHandlerCallback callback) throws Exception {
                 System.out.println("JAVA.TEST");
                 System.out.println("Message : " + message);
+//                Thread.sleep( );
                 callback.callback("OK");
             }
         });
@@ -14,7 +17,7 @@ public class Demo {
         GITSRabbitRPCServer.Start(
                 "amqps://gitsmicros:UNIKOM@portal-ssl1155-0.bmix-dal-yp-151044e0-030b-4406-8efc-84656da093b9.nancys-us-ibm-com.composedb.com:19324/bmix-dal-yp-151044e0-030b-4406-8efc-84656da093b9",
                 "java_queue",
-                new GITSRabbitRPCServer.RabbitRPCServerListener() {
+                new RabbitRPCServerListener() {
 
             @Override
             public void onConnected() {
@@ -24,7 +27,7 @@ public class Demo {
             }
 
             @Override
-            public void onError(Exception e, GITSRabbitRPCServer.RabbitError type) {
+            public void onError(Exception e, RabbitError type) {
                 e.printStackTrace();
                 System.out.println(type);
             }
